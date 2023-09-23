@@ -1,11 +1,11 @@
 package ar.edu.unlam.pb2.trasnporte;
 
-import java.util.ArrayList;
 
-public class Bicicleta {
-	ArrayList<Paquete> paquetes = new ArrayList<Paquete>();
+public class Bicicleta extends Transporte {
+	
 	private String ciudad;
 
+	@Override
 	public Boolean cargarPaquete(Paquete paquete1) {
 
 		if (!destinoCompatible(paquete1.getCiudad())) {
@@ -33,8 +33,9 @@ public class Bicicleta {
 
 		return paquete1.getPeso() <= 15.0;
 	}
-
-	private boolean volumenCompatible(Paquete paquete1) {
+	
+	
+	private Boolean volumenCompatible(Paquete paquete1) {
 
 		return paquete1.getVolumen() <= 0.125;
 	}

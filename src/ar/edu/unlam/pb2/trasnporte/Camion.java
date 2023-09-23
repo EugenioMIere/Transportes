@@ -1,13 +1,13 @@
 package ar.edu.unlam.pb2.trasnporte;
 
-import java.util.ArrayList;
 
-public class Camion {
-	ArrayList<Paquete> paquetes = new ArrayList<Paquete>();
+public class Camion extends Transporte {
+	
 
 	public Double volumenTotal = 0.00;
 	private Double pesoTotal = 0.00;
 
+	@Override
 	public Boolean cargarPaquete(Paquete paquete1) {
 
 		if (!volumenCompatible(paquete1)) {

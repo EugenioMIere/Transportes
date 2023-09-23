@@ -1,22 +1,18 @@
 package ar.edu.unlam.pb2.trasnporte;
 
-import java.util.ArrayList;
 
-public class Automovil {
-	ArrayList<Paquete> paquetes = new ArrayList<Paquete>();
+public class Automovil extends Transporte{
+	
 
 	public Double volumenTotal = 0.00;
 	private Double pesoTotal = 0.00;
-
+	
+	@Override
 	public Boolean cargarPaquete(Paquete paquete1) {
 
 		if (!destinoCompatible(paquete1)) {
 			return false;
 		}
-//
-//		if (!cantidadDePaquetesCompatible(paquete1)) {
-//			return false;
-//		}
 
 		if (!volumenCompatible(paquete1)) {
 			return false;
@@ -46,7 +42,7 @@ public class Automovil {
 
 	}
 
-	private boolean volumenCompatible(Paquete paquete1) {
+	private Boolean volumenCompatible(Paquete paquete1) {
 
 		if (this.volumenTotal + paquete1.getVolumen() <= 2.00) {
 			this.volumenTotal = this.volumenTotal + paquete1.getVolumen();
@@ -57,19 +53,14 @@ public class Automovil {
 
 	}
 
-//	private boolean cantidadDePaquetesCompatible(Paquete paquete1) {
-//
-//		return paquetes.size() < 2;
-//	}
-//
-	private boolean destinoCompatible(Paquete paquete1) {
+	private Boolean destinoCompatible(Paquete paquete1) {
 
 		if (this.paquetes.size() < 3) {
 			for (Paquete paquete : paquetes) {
 				if (paquete.getCiudad().equals(paquete1.getCiudad())) {
 					return false;
 				}
-				
+
 			}
 			return true;
 		}
